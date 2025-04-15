@@ -109,6 +109,7 @@ function Main() {
                 <Card.Text>{article.summary.substring(0,100)}...</Card.Text>
                 <Button variant="primary" href={`/articles/${article.id}`}>
                   Leggi di più
+                  
                 </Button>
               </Card.Body>
             </Card>
