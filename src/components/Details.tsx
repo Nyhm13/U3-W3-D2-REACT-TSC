@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Result } from "../types";
 
@@ -38,13 +38,14 @@ const Details = function () {
     }
   }, [details]);
   return (
-    <Container className="mt-5">
+    <Container className="mt-5 ">
+      <h1 className=" mt-5 text-center">Dettagli del articolo</h1>
       <Row className="justify-content-center">
         <Col sm={12} md={8}>
-          {details && (
+          {details ? (
             <>
               <h1 className=" mt-5">
-                Dettagli del articolo di : {details.authors[0].name}
+                Autore del articolo : {details.authors[0].name}
               </h1>
               <Card>
                 <Card.Img variant="top" src={details.image_url} />
@@ -57,6 +58,10 @@ const Details = function () {
                 </Card.Body>
               </Card>
             </>
+          ) : (
+            <div className="text-center">
+              <Spinner className=" mt-5" animation="border" variant="primary" />
+            </div>
           )}
         </Col>
       </Row>
